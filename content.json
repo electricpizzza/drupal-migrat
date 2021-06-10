@@ -1,0 +1,90 @@
+[
+  {
+    "vid": "159",
+    "uid": "1",
+    "title": "Championnat du Maroc DE LA NATATION EN EAU LIBRE",
+    "log": "",
+    "status": "1",
+    "comment": "2",
+    "promote": "0",
+    "sticky": "0",
+    "vuuid": "acc1aed9-86e2-4d38-96fb-fa6686df1974",
+    "nid": "159",
+    "type": "agenda",
+    "language": "fr",
+    "created": "1472233548",
+    "changed": "1481885564",
+    "tnid": "0",
+    "translate": "0",
+    "uuid": "fc4e888a-f193-4319-b55c-c495e3c91518",
+    "revision_timestamp": "1481885564",
+    "revision_uid": "1",
+    "field_body": {
+      "und": [
+        {
+          "value": "\u003Cp\u003EChampionnat du Maroc\u0026nbsp;\u003C/p\u003E",
+          "summary": "",
+          "format": "texte_complet",
+          "safe_value": " \u003Cp\u003EChampionnat du Maroc\u0026nbsp;\u003C/p\u003E ",
+          "safe_summary": "  "
+        }
+      ]
+    },
+    "field_categorie": {
+      "und": [{ "tid": "2", "uuid": "6d1d1b02-b000-435e-9ce5-d0eca59fe41e" }]
+    },
+    "field_month": { "und": [{ "value": "7" }] },
+    "field_event_addresse": {
+      "und": [
+        { "value": "EL JADIDA", "format": null, "safe_value": "EL JADIDA" }
+      ]
+    },
+    "field_day": { "und": [{ "value": "22" }] },
+    "field_city": { "und": [{ "value": "ELJADIDA" }] },
+    "rdf_mapping": {
+      "rdftype": ["sioc:Item", "foaf:Document"],
+      "title": { "predicates": ["dc:title"] },
+      "created": {
+        "predicates": ["dc:date", "dc:created"],
+        "datatype": "xsd:dateTime",
+        "callback": "date_iso8601"
+      },
+      "changed": {
+        "predicates": ["dc:modified"],
+        "datatype": "xsd:dateTime",
+        "callback": "date_iso8601"
+      },
+      "body": { "predicates": ["content:encoded"] },
+      "uid": { "predicates": ["sioc:has_creator"], "type": "rel" },
+      "name": { "predicates": ["foaf:name"] },
+      "comment_count": {
+        "predicates": ["sioc:num_replies"],
+        "datatype": "xsd:integer"
+      },
+      "last_activity": {
+        "predicates": ["sioc:last_activity_date"],
+        "datatype": "xsd:dateTime",
+        "callback": "date_iso8601"
+      }
+    },
+    "path": {
+      "pid": "184",
+      "source": "node/159",
+      "alias": "championnat-du-maroc-de-la-natation-en-eau-libre-0",
+      "language": "fr"
+    },
+    "cid": "0",
+    "last_comment_timestamp": "1472233548",
+    "last_comment_name": null,
+    "last_comment_uid": "1",
+    "comment_count": "0",
+    "content_theme_content_node_edit": "-content_type-",
+    "content_theme_content_node_view": "-content_type-",
+    "name": "admin",
+    "picture": "0",
+    "data": "a:1:{s:7:\u0022overlay\u0022;i:1;}",
+    "menu": null,
+    "node_export_drupal_version": "7",
+    "#node_export_object": "1"
+  }
+]
