@@ -7,6 +7,16 @@ function getData($filename)
     return json_decode($data);
 }
 
+function nodeExist($conn, $nid)
+{
+
+    $sql = "SELECT COUNT(*) FROM `node` WHERE `nid` = $nid";
+    $result = $conn->prepare($sql);
+    $result->execute();
+    $count = $result->fetchColumn();
+    return $count == 0;
+}
+
 function insertNode($row, $conn)
 {
 
@@ -18,8 +28,9 @@ function insertNode($row, $conn)
     echo "node <br>";
 
     $body = $row->body;
-    if ($body == null)
+    if ($body == null) {
         $body = $row->field_body;
+    }
     $body = $body->und[0];
 
     $html = html_entity_decode($body->value);
@@ -78,45 +89,85 @@ function addActu($conn)
     $data = getData('content.json');
     $index = 0;
     foreach ($data as $row) {
-        $index++;
-        insertNode($row, $conn);
-        $img = $row->field_image->und[0];
+        if (nodeExist($conn, $row->nid)) {
 
-        $sql = "INSERT INTO `file_managed`(`fid`, `uuid`, `langcode`, `uid`, `filename`, `uri`, `filemime`, `filesize`, `status`, `created`, `changed`)
+            $index++;
+            insertNode($row, $conn);
+            $img = $row->field_image->und[0];
+
+            $sql = "INSERT INTO `file_managed`(`fid`, `uuid`, `langcode`, `uid`, `filename`, `uri`, `filemime`, `filesize`, `status`, `created`, `changed`)
          VALUES ('$img->fid','$img->uuid','fr','$img->uid','$img->filename','$img->uri','$img->filemime','$img->filesize','$img->status','$img->timestamp','$img->timestamp')";
-        $conn->exec($sql);
-        echo "file_managed <br>";
-        $sql = "SELECT COUNT(*) FROM `file_managed`";
-        $result = $conn->prepare($sql);
-        $result->execute();
-        $fid = $result->fetchColumn();
+            $conn->exec($sql);
+            echo "file_managed <br>";
+            $sql = "SELECT * FROM `file_managed` ORDER BY `fid` DESC LIMIT 1";
+            $result = $conn->prepare($sql);
+            $result->execute();
+            $fid = $result->fetchColumn();
 
-        $sql = "INSERT INTO `file_usage`(`fid`, `module`, `type`, `id`, `count`)
+            $sql = "INSERT INTO `file_usage`(`fid`, `module`, `type`, `id`, `count`)
          VALUES ('$fid','file','node','$row->nid',1)";
-        $conn->exec($sql);
-        echo "file_usage <br>";
+            $conn->exec($sql);
+            echo "file_usage <br>";
 
-        $sql = "INSERT INTO `node__field_image`(`bundle`, `deleted`, `entity_id`, `revision_id`, `langcode`, `delta`, `field_image_target_id`, `field_image_alt`, `field_image_title`, `field_image_width`, `field_image_height`) 
+            $sql = "INSERT INTO `node__field_image`(`bundle`, `deleted`, `entity_id`, `revision_id`, `langcode`, `delta`, `field_image_target_id`, `field_image_alt`, `field_image_title`, `field_image_width`, `field_image_height`) 
         VALUES ('$row->type',0,'$row->nid','$row->revision_uid','$row->language',0,'$fid','$img->alt','$img->title','$img->width','$img->height')";
-        $conn->exec($sql);
-        echo "node__field_image <br>";
+            $conn->exec($sql);
+            echo "node__field_image <br>";
 
 
-
-
-        $sql = "INSERT INTO `node_revision__field_image`(`bundle`, `deleted`, `entity_id`, `revision_id`, `langcode`, `delta`, `field_image_target_id`, `field_image_alt`, `field_image_title`, `field_image_width`, `field_image_height`) 
+            $sql = "INSERT INTO `node_revision__field_image`(`bundle`, `deleted`, `entity_id`, `revision_id`, `langcode`, `delta`, `field_image_target_id`, `field_image_alt`, `field_image_title`, `field_image_width`, `field_image_height`) 
             VALUES ('$row->type',0,'$row->nid','$row->revision_uid','$row->language',0,'$img->fid','$img->alt','$img->title','$img->width','$img->height')";
-        $conn->exec($sql);
-        echo "node_revision__field_image <br>";
+            $conn->exec($sql);
+            echo "node_revision__field_image <br>";
+
+
+            if (count($row->field_categorie) != 0) {
+                $tid = $row->field_categorie->und[0]->tid;
+                $sql = "INSERT INTO `node__field_categorie`(`bundle`, `deleted`, `entity_id`, `revision_id`, `langcode`, `delta`, `field_categorie_target_id`)
+             VALUES ('$row->type',0,'$row->nid','$row->revision_uid','$row->language',0,'$tid')";
+                $conn->exec($sql);
+                echo "node__field_categorie <br>";
+            }
+
+            if (count($row->field_fichier) != 0) {
+                $delta = 0;
+                foreach ($row->field_fichier->und as $file) {
+
+                    $sql = "INSERT INTO `file_managed`(`fid`, `uuid`, `langcode`, `uid`, `filename`, `uri`, `filemime`, `filesize`, `status`, `created`, `changed`)
+                    VALUES ('$file->fid','$file->uuid','fr','$file->uid','$file->filename','$file->uri','$file->filemime','$file->filesize','$file->status','$file->timestamp','$file->timestamp')";
+                    $conn->exec($sql);
+                    echo "file_managed <br>";
+
+                    $sql = "SELECT `fid` FROM `file_managed` ORDER BY `fid` DESC LIMIT 1";
+                    $result = $conn->prepare($sql);
+                    $result->execute();
+                    $fidd = $result->fetchColumn();
+
+                    $sql = "INSERT INTO `file_usage`(`fid`, `module`, `type`, `id`, `count`)
+                    VALUES ('$fidd','file','node','$row->nid',1)";
+                    $conn->exec($sql);
+                    echo "file_usage  $fidd<br>";
+
+
+                    $sql = "INSERT INTO `node__field_fichier`(`bundle`, `deleted`, `entity_id`, `revision_id`, `langcode`, `delta`,`field_fichier_target_id`, `field_fichier_display`, `field_fichier_description`) 
+                    VALUES ('$row->type',0,'$row->nid','$row->revision_uid','$row->language',$delta,'$fidd',1,'')";
+                    $conn->exec($sql);
+                    $delta++;
+                    echo "node__field_fichier <br>";
+                }
+            }
 
 
 
-        echo $row->uuid . " is inserted <br>";
-        echo "New record created successfully  <br>";
+
+
+            echo $row->uuid . " is inserted <br>";
+            echo "New record created successfully  <br>";
+        }
+
+
+        echo "<h1>$index New records created successfully </h1> <br>";
     }
-
-
-    echo "<h1>$index New records created successfully </h1> <br>";
 }
 
 function addRecM($conn)
@@ -125,10 +176,12 @@ function addRecM($conn)
     $data = getData('content.json');
     $index = 0;
     foreach ($data as $row) {
-        $index++;
-        insertNode($row, $conn);
-        echo $row->uuid . " is inserted <br>";
-        echo "New record created successfully  <br>";
+        if (nodeExist($conn, $row->nid)) {
+            $index++;
+            insertNode($row, $conn);
+            echo $row->uuid . " is inserted <br>";
+            echo "New record created successfully  <br>";
+        }
     }
 
 
@@ -142,43 +195,45 @@ function addAgenda($conn)
     $data = getData('content.json');
     $index = 0;
     foreach ($data as $row) {
-        $index++;
-        insertNode($row, $conn);
-        echo $row->uuid . " is inserted <br>";
-        echo "New record created successfully  <br>";
+        if (nodeExist($conn, $row->nid)) {
+            $index++;
+            insertNode($row, $conn);
+            echo $row->uuid . " is inserted <br>";
+            echo "New record created successfully  <br>";
 
-        $tid = $row->field_categorie->und[0]->tid;
-        $sql = "INSERT INTO `node__field_categorie`(`bundle`, `deleted`, `entity_id`, `revision_id`, `langcode`, `delta`, `field_categorie_target_id`)
+            $tid = $row->field_categorie->und[0]->tid;
+            $sql = "INSERT INTO `node__field_categorie`(`bundle`, `deleted`, `entity_id`, `revision_id`, `langcode`, `delta`, `field_categorie_target_id`)
          VALUES ('$row->type',0,'$row->nid','$row->revision_uid','$row->language',0,'$tid')";
-        $conn->exec($sql);
-        echo "node__field_categorie <br>";
+            $conn->exec($sql);
+            echo "node__field_categorie <br>";
 
-        $day = $row->field_day->und[0]->value;
-        $sql = "INSERT INTO `node__field_jour`(`bundle`, `deleted`, `entity_id`, `revision_id`, `langcode`, `delta`, `field_jour_value`)
+            $day = $row->field_day->und[0]->value;
+            $sql = "INSERT INTO `node__field_jour`(`bundle`, `deleted`, `entity_id`, `revision_id`, `langcode`, `delta`, `field_jour_value`)
          VALUES ('$row->type',0,'$row->nid','$row->revision_uid','$row->language',0,'$day')";
-        $conn->exec($sql);
-        echo "node__field_jour <br>";
+            $conn->exec($sql);
+            echo "node__field_jour <br>";
 
 
-        $mois = $row->field_month->und[0]->value;
-        $sql = "INSERT INTO `node__field_mois`(`bundle`, `deleted`, `entity_id`, `revision_id`, `langcode`, `delta`, `field_mois_value`)
+            $mois = $row->field_month->und[0]->value;
+            $sql = "INSERT INTO `node__field_mois`(`bundle`, `deleted`, `entity_id`, `revision_id`, `langcode`, `delta`, `field_mois_value`)
           VALUES ('$row->type',0,'$row->nid','$row->revision_uid','$row->language',0,'$mois')";
-        $conn->exec($sql);
-        echo "node__field_mois <br>";
+            $conn->exec($sql);
+            echo "node__field_mois <br>";
 
-        $add = $row->field_event_addresse->und[0]->value;
-        $sql = "INSERT INTO `node__field_event_addresse`(`bundle`, `deleted`, `entity_id`, `revision_id`, `langcode`, `delta`, `field_event_addresse_value`)
+            $add = $row->field_event_addresse->und[0]->value;
+            $sql = "INSERT INTO `node__field_event_addresse`(`bundle`, `deleted`, `entity_id`, `revision_id`, `langcode`, `delta`, `field_event_addresse_value`)
           VALUES ('$row->type',0,'$row->nid','$row->revision_uid','$row->language',0,'$add')";
-        $conn->exec($sql);
-        echo "node__field_event_addresse <br>";
+            $conn->exec($sql);
+            echo "node__field_event_addresse <br>";
 
-        $city = $row->field_city->und[0]->value;
-        $sql = "INSERT INTO `node__field_ville`(`bundle`, `deleted`, `entity_id`, `revision_id`, `langcode`, `delta`, `field_ville_value`)
+            $city = $row->field_city->und[0]->value;
+            $sql = "INSERT INTO `node__field_ville`(`bundle`, `deleted`, `entity_id`, `revision_id`, `langcode`, `delta`, `field_ville_value`)
           VALUES ('$row->type',0,'$row->nid','$row->revision_uid','$row->language',0,'$city')";
-        $conn->exec($sql);
-        echo "node__field_ville <br>";
+            $conn->exec($sql);
+            echo "node__field_ville <br>";
+        }
+
+
+        echo "<h1>$index New records created successfully </h1> <br>";
     }
-
-
-    echo "<h1>$index New records created successfully </h1> <br>";
 }
