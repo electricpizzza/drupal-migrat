@@ -85,91 +85,99 @@ function insertNode($row, $conn)
 
 function addActu($conn)
 {
+    for ($i = 1; $i < 24; $i++) {
 
-    $data = getData('content.json');
-    $index = 0;
-    foreach ($data as $row) {
-        if (nodeExist($conn, $row->nid)) {
+        $data = getData('data/article-p' . $i . '.json');
+        $index = 0;
+        foreach ($data as $row) {
+            if (nodeExist($conn, $row->nid)) {
 
-            $index++;
-            insertNode($row, $conn);
-            $img = $row->field_image->und[0];
+                $index++;
+                insertNode($row, $conn);
+                $img = $row->field_image->und[0];
 
-            $sql = "INSERT INTO `file_managed`(`fid`, `uuid`, `langcode`, `uid`, `filename`, `uri`, `filemime`, `filesize`, `status`, `created`, `changed`)
-         VALUES ('$img->fid','$img->uuid','fr','$img->uid','$img->filename','$img->uri','$img->filemime','$img->filesize','$img->status','$img->timestamp','$img->timestamp')";
-            $conn->exec($sql);
-            echo "file_managed <br>";
-            $sql = "SELECT * FROM `file_managed` ORDER BY `fid` DESC LIMIT 1";
-            $result = $conn->prepare($sql);
-            $result->execute();
-            $fid = $result->fetchColumn();
-
-            $sql = "INSERT INTO `file_usage`(`fid`, `module`, `type`, `id`, `count`)
-         VALUES ('$fid','file','node','$row->nid',1)";
-            $conn->exec($sql);
-            echo "file_usage <br>";
-
-            $sql = "INSERT INTO `node__field_image`(`bundle`, `deleted`, `entity_id`, `revision_id`, `langcode`, `delta`, `field_image_target_id`, `field_image_alt`, `field_image_title`, `field_image_width`, `field_image_height`) 
-        VALUES ('$row->type',0,'$row->nid','$row->revision_uid','$row->language',0,'$fid','$img->alt','$img->title','$img->width','$img->height')";
-            $conn->exec($sql);
-            echo "node__field_image <br>";
-
-
-            $sql = "INSERT INTO `node_revision__field_image`(`bundle`, `deleted`, `entity_id`, `revision_id`, `langcode`, `delta`, `field_image_target_id`, `field_image_alt`, `field_image_title`, `field_image_width`, `field_image_height`) 
-            VALUES ('$row->type',0,'$row->nid','$row->revision_uid','$row->language',0,'$img->fid','$img->alt','$img->title','$img->width','$img->height')";
-            $conn->exec($sql);
-            echo "node_revision__field_image <br>";
-
-
-            if (count($row->field_categorie) != 0) {
-                $tid = $row->field_categorie->und[0]->tid;
-                $sql = "INSERT INTO `node__field_categorie`(`bundle`, `deleted`, `entity_id`, `revision_id`, `langcode`, `delta`, `field_categorie_target_id`)
-             VALUES ('$row->type',0,'$row->nid','$row->revision_uid','$row->language',0,'$tid')";
+                $sql = "INSERT INTO `file_managed`( `uuid`, `langcode`, `uid`, `filename`, `uri`, `filemime`, `filesize`, `status`, `created`, `changed`)
+             VALUES ('$img->uuid','fr','$img->uid','$img->filename','$img->uri','$img->filemime','$img->filesize','$img->status','$img->timestamp','$img->timestamp')";
                 $conn->exec($sql);
-                echo "node__field_categorie <br>";
-            }
+                echo "file_managed <br>";
 
-            if (count($row->field_fichier) != 0) {
-                $delta = 0;
-                foreach ($row->field_fichier->und as $file) {
+                $sql = "SELECT * FROM `file_managed` ORDER BY `fid` DESC LIMIT 1";
+                $result = $conn->prepare($sql);
+                $result->execute();
+                $fid = $result->fetchColumn();
 
-                    $sql = "INSERT INTO `file_managed`(`fid`, `uuid`, `langcode`, `uid`, `filename`, `uri`, `filemime`, `filesize`, `status`, `created`, `changed`)
-                    VALUES ('$file->fid','$file->uuid','fr','$file->uid','$file->filename','$file->uri','$file->filemime','$file->filesize','$file->status','$file->timestamp','$file->timestamp')";
+                $sql = "INSERT INTO `file_usage`(`fid`, `module`, `type`, `id`, `count`)
+             VALUES ('$fid','file','node','$row->nid',1)";
+                $conn->exec($sql);
+                echo "file_usage <br>";
+
+                $sql = "INSERT INTO `node__field_image`(`bundle`, `deleted`, `entity_id`, `revision_id`, `langcode`, `delta`, `field_image_target_id`, `field_image_alt`, `field_image_title`, `field_image_width`, `field_image_height`) 
+            VALUES ('$row->type',0,'$row->nid','$row->revision_uid','$row->language',0,'$fid','$img->alt','$img->title','$img->width','$img->height')";
+                $conn->exec($sql);
+                echo "node__field_image <br>";
+
+
+                $sql = "INSERT INTO `node_revision__field_image`(`bundle`, `deleted`, `entity_id`, `revision_id`, `langcode`, `delta`, `field_image_target_id`, `field_image_alt`, `field_image_title`, `field_image_width`, `field_image_height`) 
+                VALUES ('$row->type',0,'$row->nid','$row->revision_uid','$row->language',0,'$fid','$img->alt','$img->title','$img->width','$img->height')";
+                $conn->exec($sql);
+                echo "node_revision__field_image <br>";
+
+
+                if (count($row->field_categorie) != 0) {
+                    $tid = $row->field_categorie->und[0]->tid;
+                    $sql = "INSERT INTO `node__field_categorie`(`bundle`, `deleted`, `entity_id`, `revision_id`, `langcode`, `delta`, `field_categorie_target_id`)
+                 VALUES ('$row->type',0,'$row->nid','$row->revision_uid','$row->language',0,'$tid')";
                     $conn->exec($sql);
-                    echo "file_managed <br>";
-
-                    $sql = "SELECT `fid` FROM `file_managed` ORDER BY `fid` DESC LIMIT 1";
-                    $result = $conn->prepare($sql);
-                    $result->execute();
-                    $fidd = $result->fetchColumn();
-
-                    $sql = "INSERT INTO `file_usage`(`fid`, `module`, `type`, `id`, `count`)
-                    VALUES ('$fidd','file','node','$row->nid',1)";
-                    $conn->exec($sql);
-                    echo "file_usage  $fidd<br>";
-
-
-                    $sql = "INSERT INTO `node__field_fichier`(`bundle`, `deleted`, `entity_id`, `revision_id`, `langcode`, `delta`,`field_fichier_target_id`, `field_fichier_display`, `field_fichier_description`) 
-                    VALUES ('$row->type',0,'$row->nid','$row->revision_uid','$row->language',$delta,'$fidd',1,'')";
-                    $conn->exec($sql);
-                    $delta++;
-                    echo "node__field_fichier <br>";
+                    echo "node__field_categorie <br>";
                 }
+
+                if (count($row->field_fichier->und) != 0) {
+                    $delta = 0;
+                    foreach ($row->field_fichier->und as $file) {
+
+                        $filenam = html_entity_decode(htmlspecialchars($file->filename));
+                        $filenam = str_replace('\'', '', $filenam);
+                        $fileuri = str_replace('\'', '%27', $file->uri);
+                        // $sql = "INSERT INTO `file_managed`( `uuid`, `langcode`, `uid`, `filename`, `uri`, `filemime`, `filesize`, `status`, `created`, `changed`)
+                        //  VALUES ('$file->uuid','fr','$file->uid','$filenam','$file->uri','$file->filemime','$file->filesize','$file->status','$file->timestamp','$file->timestamp')";
+                        // $conn->exec($sql);
+                        echo "$filenam <br>";
+
+                        $sql = $conn->prepare("INSERT INTO `file_managed`( `uuid`, `langcode`, `uid`, `filename`, `uri`, `filemime`, `filesize`, `status`, `created`, `changed`)
+                         VALUES ('$file->uuid','fr','$file->uid',':filenam','$fileuri','$file->filemime','$file->filesize','$file->status','$file->timestamp','$file->timestamp')");
+                        $sql->bindParam('filenam', $filenam);
+                        $sql->execute();
+                        echo "file_managed <br>";
+
+                        $sql = "SELECT `fid` FROM `file_managed` ORDER BY `fid` DESC LIMIT 1";
+                        $result = $conn->prepare($sql);
+                        $result->execute();
+                        $fidd = $result->fetchColumn();
+
+                        $sql = "INSERT INTO `file_usage`(`fid`, `module`, `type`, `id`, `count`)
+                        VALUES ('$fidd','file','node','$row->nid',1)";
+                        $conn->exec($sql);
+                        echo "file_usage  $fidd<br>";
+
+
+                        $sql = "INSERT INTO `node__field_fichier`(`bundle`, `deleted`, `entity_id`, `revision_id`, `langcode`, `delta`,`field_fichier_target_id`, `field_fichier_display`, `field_fichier_description`) 
+                        VALUES ('$row->type',0,'$row->nid','$row->revision_uid','$row->language',$delta,'$fidd',1,'')";
+                        $conn->exec($sql);
+                        $delta++;
+                        echo "node__field_fichier <br>";
+                    }
+                }
+
+
+                echo $row->uuid . " is inserted <br>";
+                echo "New record created successfully  <br>";
             }
 
 
-
-
-
-            echo $row->uuid . " is inserted <br>";
-            echo "New record created successfully  <br>";
+            echo "<h1>$index New records created successfully </h1> <br>";
         }
-
-
-        echo "<h1>$index New records created successfully </h1> <br>";
     }
 }
-
 function addRecM($conn)
 {
 

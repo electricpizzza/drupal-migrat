@@ -1,0 +1,578 @@
+[
+    {
+        "vid": "304",
+        "uid": "1",
+        "title": "Championnats du Maroc d\u0027Hiver de Natation ",
+        "log": "",
+        "status": "1",
+        "comment": "2",
+        "promote": "0",
+        "sticky": "0",
+        "vuuid": "fcb73f9a-f803-4503-b097-7755576d8a9d",
+        "nid": "304",
+        "type": "agenda",
+        "language": "fr",
+        "created": "1485535824",
+        "changed": "1485535824",
+        "tnid": "0",
+        "translate": "0",
+        "uuid": "c19b83d6-b968-4fd4-9eb2-b21d6b2c8984",
+        "revision_timestamp": "1485535824",
+        "revision_uid": "1",
+        "field_body": {
+            "und": [
+                {
+                    "value": "\u003Cp\u003EChampionnats du Maroc\u0026nbsp;\u003C\/p\u003E",
+                    "summary": "",
+                    "format": "texte_complet",
+                    "safe_value": " \u003Cp\u003EChampionnats du Maroc\u0026nbsp;\u003C\/p\u003E ",
+                    "safe_summary": "  "
+                }
+            ]
+        },
+        "field_categorie": {
+            "und": [
+                {
+                    "tid": "1",
+                    "uuid": "28d73415-6466-40b1-b59e-b851798021c9"
+                }
+            ]
+        },
+        "field_month": {
+            "und": [
+                {
+                    "value": "2"
+                }
+            ]
+        },
+        "field_event_addresse": {
+            "und": [
+                {
+                    "value": "MEKNES",
+                    "format": null,
+                    "safe_value": "MEKNES"
+                }
+            ]
+        },
+        "field_day": {
+            "und": [
+                {
+                    "value": "10"
+                }
+            ]
+        },
+        "field_city": {
+            "und": [
+                {
+                    "value": "MEKNES"
+                }
+            ]
+        },
+        "rdf_mapping": {
+            "rdftype": [
+                "sioc:Item",
+                "foaf:Document"
+            ],
+            "title": {
+                "predicates": [
+                    "dc:title"
+                ]
+            },
+            "created": {
+                "predicates": [
+                    "dc:date",
+                    "dc:created"
+                ],
+                "datatype": "xsd:dateTime",
+                "callback": "date_iso8601"
+            },
+            "changed": {
+                "predicates": [
+                    "dc:modified"
+                ],
+                "datatype": "xsd:dateTime",
+                "callback": "date_iso8601"
+            },
+            "body": {
+                "predicates": [
+                    "content:encoded"
+                ]
+            },
+            "uid": {
+                "predicates": [
+                    "sioc:has_creator"
+                ],
+                "type": "rel"
+            },
+            "name": {
+                "predicates": [
+                    "foaf:name"
+                ]
+            },
+            "comment_count": {
+                "predicates": [
+                    "sioc:num_replies"
+                ],
+                "datatype": "xsd:integer"
+            },
+            "last_activity": {
+                "predicates": [
+                    "sioc:last_activity_date"
+                ],
+                "datatype": "xsd:dateTime",
+                "callback": "date_iso8601"
+            }
+        },
+        "path": {
+            "pid": "329",
+            "source": "node\/304",
+            "alias": "championnats-du-maroc-dhiver-de-natation",
+            "language": "fr"
+        },
+        "cid": "0",
+        "last_comment_timestamp": "1485535824",
+        "last_comment_name": null,
+        "last_comment_uid": "1",
+        "comment_count": "0",
+        "content_theme_content_node_edit": "-content_type-",
+        "content_theme_content_node_view": "-content_type-",
+        "name": "admin",
+        "picture": "0",
+        "data": "a:1:{s:7:\u0022overlay\u0022;i:1;}",
+        "menu": null,
+        "node_export_drupal_version": "7",
+        "#node_export_object": "1"
+    },
+    {
+        "vid": "159",
+        "uid": "1",
+        "title": "Championnat du Maroc DE LA NATATION EN EAU LIBRE",
+        "log": "",
+        "status": "1",
+        "comment": "2",
+        "promote": "0",
+        "sticky": "0",
+        "vuuid": "acc1aed9-86e2-4d38-96fb-fa6686df1974",
+        "nid": "159",
+        "type": "agenda",
+        "language": "fr",
+        "created": "1472233548",
+        "changed": "1481885564",
+        "tnid": "0",
+        "translate": "0",
+        "uuid": "fc4e888a-f193-4319-b55c-c495e3c91518",
+        "revision_timestamp": "1481885564",
+        "revision_uid": "1",
+        "field_body": {
+            "und": [
+                {
+                    "value": "\u003Cp\u003EChampionnat du Maroc\u0026nbsp;\u003C\/p\u003E",
+                    "summary": "",
+                    "format": "texte_complet",
+                    "safe_value": " \u003Cp\u003EChampionnat du Maroc\u0026nbsp;\u003C\/p\u003E ",
+                    "safe_summary": "  "
+                }
+            ]
+        },
+        "field_categorie": {
+            "und": [
+                {
+                    "tid": "2",
+                    "uuid": "6d1d1b02-b000-435e-9ce5-d0eca59fe41e"
+                }
+            ]
+        },
+        "field_month": {
+            "und": [
+                {
+                    "value": "7"
+                }
+            ]
+        },
+        "field_event_addresse": {
+            "und": [
+                {
+                    "value": "EL JADIDA",
+                    "format": null,
+                    "safe_value": "EL JADIDA"
+                }
+            ]
+        },
+        "field_day": {
+            "und": [
+                {
+                    "value": "22"
+                }
+            ]
+        },
+        "field_city": {
+            "und": [
+                {
+                    "value": "ELJADIDA"
+                }
+            ]
+        },
+        "rdf_mapping": {
+            "rdftype": [
+                "sioc:Item",
+                "foaf:Document"
+            ],
+            "title": {
+                "predicates": [
+                    "dc:title"
+                ]
+            },
+            "created": {
+                "predicates": [
+                    "dc:date",
+                    "dc:created"
+                ],
+                "datatype": "xsd:dateTime",
+                "callback": "date_iso8601"
+            },
+            "changed": {
+                "predicates": [
+                    "dc:modified"
+                ],
+                "datatype": "xsd:dateTime",
+                "callback": "date_iso8601"
+            },
+            "body": {
+                "predicates": [
+                    "content:encoded"
+                ]
+            },
+            "uid": {
+                "predicates": [
+                    "sioc:has_creator"
+                ],
+                "type": "rel"
+            },
+            "name": {
+                "predicates": [
+                    "foaf:name"
+                ]
+            },
+            "comment_count": {
+                "predicates": [
+                    "sioc:num_replies"
+                ],
+                "datatype": "xsd:integer"
+            },
+            "last_activity": {
+                "predicates": [
+                    "sioc:last_activity_date"
+                ],
+                "datatype": "xsd:dateTime",
+                "callback": "date_iso8601"
+            }
+        },
+        "path": {
+            "pid": "184",
+            "source": "node\/159",
+            "alias": "championnat-du-maroc-de-la-natation-en-eau-libre-0",
+            "language": "fr"
+        },
+        "cid": "0",
+        "last_comment_timestamp": "1472233548",
+        "last_comment_name": null,
+        "last_comment_uid": "1",
+        "comment_count": "0",
+        "content_theme_content_node_edit": "-content_type-",
+        "content_theme_content_node_view": "-content_type-",
+        "name": "admin",
+        "picture": "0",
+        "data": "a:1:{s:7:\u0022overlay\u0022;i:1;}",
+        "menu": null,
+        "node_export_drupal_version": "7",
+        "#node_export_object": "1"
+    },
+    {
+        "vid": "158",
+        "uid": "1",
+        "title": "Finale du Circuit du Jeune Nageur ",
+        "log": "",
+        "status": "1",
+        "comment": "2",
+        "promote": "0",
+        "sticky": "0",
+        "vuuid": "1996439e-4e82-486f-af2e-6a0c5152e31a",
+        "nid": "158",
+        "type": "agenda",
+        "language": "fr",
+        "created": "1472233466",
+        "changed": "1481885439",
+        "tnid": "0",
+        "translate": "0",
+        "uuid": "fede8e2d-38ab-4810-af7d-1256d0c3dd07",
+        "revision_timestamp": "1481885439",
+        "revision_uid": "1",
+        "field_body": {
+            "und": [
+                {
+                    "value": "\u003Cp\u003EFinale du Circuit du Jeune Nageur\u0026nbsp;\u003C\/p\u003E",
+                    "summary": "",
+                    "format": "texte_complet",
+                    "safe_value": " \u003Cp\u003EFinale du Circuit du Jeune Nageur\u0026nbsp;\u003C\/p\u003E ",
+                    "safe_summary": "  "
+                }
+            ]
+        },
+        "field_categorie": {
+            "und": [
+                {
+                    "tid": "1",
+                    "uuid": "28d73415-6466-40b1-b59e-b851798021c9"
+                }
+            ]
+        },
+        "field_month": {
+            "und": [
+                {
+                    "value": "7"
+                }
+            ]
+        },
+        "field_event_addresse": {
+            "und": [
+                {
+                    "value": "Rabat",
+                    "format": null,
+                    "safe_value": "Rabat"
+                }
+            ]
+        },
+        "field_day": {
+            "und": [
+                {
+                    "value": "15"
+                }
+            ]
+        },
+        "field_city": {
+            "und": [
+                {
+                    "value": "RABAT"
+                }
+            ]
+        },
+        "rdf_mapping": {
+            "rdftype": [
+                "sioc:Item",
+                "foaf:Document"
+            ],
+            "title": {
+                "predicates": [
+                    "dc:title"
+                ]
+            },
+            "created": {
+                "predicates": [
+                    "dc:date",
+                    "dc:created"
+                ],
+                "datatype": "xsd:dateTime",
+                "callback": "date_iso8601"
+            },
+            "changed": {
+                "predicates": [
+                    "dc:modified"
+                ],
+                "datatype": "xsd:dateTime",
+                "callback": "date_iso8601"
+            },
+            "body": {
+                "predicates": [
+                    "content:encoded"
+                ]
+            },
+            "uid": {
+                "predicates": [
+                    "sioc:has_creator"
+                ],
+                "type": "rel"
+            },
+            "name": {
+                "predicates": [
+                    "foaf:name"
+                ]
+            },
+            "comment_count": {
+                "predicates": [
+                    "sioc:num_replies"
+                ],
+                "datatype": "xsd:integer"
+            },
+            "last_activity": {
+                "predicates": [
+                    "sioc:last_activity_date"
+                ],
+                "datatype": "xsd:dateTime",
+                "callback": "date_iso8601"
+            }
+        },
+        "path": {
+            "pid": "183",
+            "source": "node\/158",
+            "alias": "finale-du-circuit-du-jeune-nageur",
+            "language": "fr"
+        },
+        "cid": "0",
+        "last_comment_timestamp": "1472233466",
+        "last_comment_name": null,
+        "last_comment_uid": "1",
+        "comment_count": "0",
+        "content_theme_content_node_edit": "-content_type-",
+        "content_theme_content_node_view": "-content_type-",
+        "name": "admin",
+        "picture": "0",
+        "data": "a:1:{s:7:\u0022overlay\u0022;i:1;}",
+        "menu": null,
+        "node_export_drupal_version": "7",
+        "#node_export_object": "1"
+    },
+    {
+        "vid": "161",
+        "uid": "1",
+        "title": "Coupe du Tr\u00f4ne 2016",
+        "log": "",
+        "status": "1",
+        "comment": "2",
+        "promote": "0",
+        "sticky": "0",
+        "vuuid": "86709f81-c925-4316-956d-58355ceefa4b",
+        "nid": "161",
+        "type": "agenda",
+        "language": "fr",
+        "created": "1472234218",
+        "changed": "1481885360",
+        "tnid": "0",
+        "translate": "0",
+        "uuid": "bc0b96f2-39b5-4850-b7c4-b5e721c74a73",
+        "revision_timestamp": "1481885360",
+        "revision_uid": "1",
+        "field_body": {
+            "und": [
+                {
+                    "value": "\u003Cp\u003ECoupe du Tr\u00f4ne\u0026nbsp;\u003C\/p\u003E",
+                    "summary": "",
+                    "format": "texte_complet",
+                    "safe_value": " \u003Cp\u003ECoupe du Tr\u00f4ne\u0026nbsp;\u003C\/p\u003E ",
+                    "safe_summary": "  "
+                }
+            ]
+        },
+        "field_categorie": {
+            "und": [
+                {
+                    "tid": "1",
+                    "uuid": "28d73415-6466-40b1-b59e-b851798021c9"
+                }
+            ]
+        },
+        "field_month": {
+            "und": [
+                {
+                    "value": "7"
+                }
+            ]
+        },
+        "field_event_addresse": {
+            "und": [
+                {
+                    "value": "Casablanca",
+                    "format": null,
+                    "safe_value": "Casablanca"
+                }
+            ]
+        },
+        "field_day": {
+            "und": [
+                {
+                    "value": "1"
+                }
+            ]
+        },
+        "field_city": {
+            "und": [
+                {
+                    "value": "CASABLANCA"
+                }
+            ]
+        },
+        "rdf_mapping": {
+            "rdftype": [
+                "sioc:Item",
+                "foaf:Document"
+            ],
+            "title": {
+                "predicates": [
+                    "dc:title"
+                ]
+            },
+            "created": {
+                "predicates": [
+                    "dc:date",
+                    "dc:created"
+                ],
+                "datatype": "xsd:dateTime",
+                "callback": "date_iso8601"
+            },
+            "changed": {
+                "predicates": [
+                    "dc:modified"
+                ],
+                "datatype": "xsd:dateTime",
+                "callback": "date_iso8601"
+            },
+            "body": {
+                "predicates": [
+                    "content:encoded"
+                ]
+            },
+            "uid": {
+                "predicates": [
+                    "sioc:has_creator"
+                ],
+                "type": "rel"
+            },
+            "name": {
+                "predicates": [
+                    "foaf:name"
+                ]
+            },
+            "comment_count": {
+                "predicates": [
+                    "sioc:num_replies"
+                ],
+                "datatype": "xsd:integer"
+            },
+            "last_activity": {
+                "predicates": [
+                    "sioc:last_activity_date"
+                ],
+                "datatype": "xsd:dateTime",
+                "callback": "date_iso8601"
+            }
+        },
+        "path": {
+            "pid": "186",
+            "source": "node\/161",
+            "alias": "coupe-du-tr\u00f4ne-2016",
+            "language": "fr"
+        },
+        "cid": "0",
+        "last_comment_timestamp": "1472234218",
+        "last_comment_name": null,
+        "last_comment_uid": "1",
+        "comment_count": "0",
+        "content_theme_content_node_edit": "-content_type-",
+        "content_theme_content_node_view": "-content_type-",
+        "name": "admin",
+        "picture": "0",
+        "data": "a:1:{s:7:\u0022overlay\u0022;i:1;}",
+        "menu": null,
+        "node_export_drupal_version": "7",
+        "#node_export_object": "1"
+    }
+]

@@ -1,0 +1,607 @@
+[
+    {
+        "vid": "74",
+        "uid": "1",
+        "title": "Record 25m Messieurs",
+        "log": "",
+        "status": "1",
+        "comment": "1",
+        "promote": "0",
+        "sticky": "0",
+        "vuuid": "2fa54811-061f-4653-9ddd-7393f77ff3c1",
+        "nid": "74",
+        "type": "records_du_maroc",
+        "language": "fr",
+        "created": "1467212430",
+        "changed": "1622645286",
+        "tnid": "0",
+        "translate": "0",
+        "uuid": "5c242b83-3611-466d-9609-daca5154b5b6",
+        "revision_timestamp": "1622645286",
+        "revision_uid": "69",
+        "body": {
+            "und": [
+                {
+                    "value": "\u003Cp\u003E\u003Ca href=\u0022http:\/\/www.frmnatation.com\/sites\/default\/files\/RECORDS%20MESSIEURS%2025%20m_0.pdf\u0022\u003Ehttp:\/\/www.frmnatation.com\/sites\/default\/files\/RECORDS%20MESSIEURS%2025%20m_0.pdf\u003C\/a\u003E\u003C\/p\u003E",
+                    "summary": "",
+                    "format": "texte_complet",
+                    "safe_value": " \u003Cp\u003E\u003Ca href=\u0022http:\/\/www.frmnatation.com\/sites\/default\/files\/RECORDS%20MESSIEURS%2025%20m_0.pdf\u0022\u003Ehttp:\/\/www.frmnatation.com\/sites\/default\/files\/RECORDS%20MESSIEURS%2025%20m_0.pdf\u003C\/a\u003E\u003C\/p\u003E ",
+                    "safe_summary": "  "
+                }
+            ]
+        },
+        "rdf_mapping": {
+            "rdftype": [
+                "sioc:Item",
+                "foaf:Document"
+            ],
+            "title": {
+                "predicates": [
+                    "dc:title"
+                ]
+            },
+            "created": {
+                "predicates": [
+                    "dc:date",
+                    "dc:created"
+                ],
+                "datatype": "xsd:dateTime",
+                "callback": "date_iso8601"
+            },
+            "changed": {
+                "predicates": [
+                    "dc:modified"
+                ],
+                "datatype": "xsd:dateTime",
+                "callback": "date_iso8601"
+            },
+            "body": {
+                "predicates": [
+                    "content:encoded"
+                ]
+            },
+            "uid": {
+                "predicates": [
+                    "sioc:has_creator"
+                ],
+                "type": "rel"
+            },
+            "name": {
+                "predicates": [
+                    "foaf:name"
+                ]
+            },
+            "comment_count": {
+                "predicates": [
+                    "sioc:num_replies"
+                ],
+                "datatype": "xsd:integer"
+            },
+            "last_activity": {
+                "predicates": [
+                    "sioc:last_activity_date"
+                ],
+                "datatype": "xsd:dateTime",
+                "callback": "date_iso8601"
+            }
+        },
+        "path": {
+            "pid": "94",
+            "source": "node\/74",
+            "alias": "record-25m-messieurs",
+            "language": "fr"
+        },
+        "cid": "0",
+        "last_comment_timestamp": "1467212430",
+        "last_comment_name": null,
+        "last_comment_uid": "1",
+        "comment_count": "0",
+        "content_theme_content_node_edit": "-content_type-",
+        "content_theme_content_node_view": "-content_type-",
+        "name": "admin",
+        "picture": "0",
+        "data": "a:1:{s:7:\u0022overlay\u0022;i:1;}",
+        "menu": {
+            "link_title": "Record 25m Messieurs",
+            "mlid": 0,
+            "plid": "0",
+            "menu_name": "menu--records-du-maroc",
+            "weight": "0",
+            "options": [],
+            "module": "menu",
+            "expanded": "0",
+            "hidden": "0",
+            "has_children": "0",
+            "customized": 0,
+            "parent_depth_limit": 8,
+            "description": "",
+            "enabled": 1
+        },
+        "node_export_drupal_version": "7",
+        "#node_export_object": "1"
+    },
+    {
+        "vid": "78",
+        "uid": "1",
+        "title": "records relais mixtes 50m et 25m",
+        "log": "",
+        "status": "1",
+        "comment": "1",
+        "promote": "0",
+        "sticky": "0",
+        "vuuid": "d0490447-9b24-47cf-84ae-025164fe8f60",
+        "nid": "78",
+        "type": "records_du_maroc",
+        "language": "fr",
+        "created": "1467213344",
+        "changed": "1622631541",
+        "tnid": "0",
+        "translate": "0",
+        "uuid": "9603979f-78ba-4f77-8887-07b8340aa1ca",
+        "revision_timestamp": "1622631541",
+        "revision_uid": "69",
+        "body": {
+            "und": [
+                {
+                    "value": "\u003Cp\u003E\u003Ca href=\u0022http:\/\/www.frmnatation.com\/sites\/default\/files\/RELAIS%20MIXTES%20BASSIN%20DE%2050%20m%20ET%20DE%2025%20m.pdf\u0022\u003E\u0026nbsp;\/sites\/default\/files\/1-%20RECORDS%20relais%20mixtes_5.pdf\u003C\/a\u003E\u003C\/p\u003E",
+                    "summary": "",
+                    "format": "texte_complet",
+                    "safe_value": " \u003Cp\u003E\u003Ca href=\u0022http:\/\/www.frmnatation.com\/sites\/default\/files\/RELAIS%20MIXTES%20BASSIN%20DE%2050%20m%20ET%20DE%2025%20m.pdf\u0022\u003E\u0026nbsp;\/sites\/default\/files\/1-%20RECORDS%20relais%20mixtes_5.pdf\u003C\/a\u003E\u003C\/p\u003E ",
+                    "safe_summary": "  "
+                }
+            ]
+        },
+        "rdf_mapping": {
+            "rdftype": [
+                "sioc:Item",
+                "foaf:Document"
+            ],
+            "title": {
+                "predicates": [
+                    "dc:title"
+                ]
+            },
+            "created": {
+                "predicates": [
+                    "dc:date",
+                    "dc:created"
+                ],
+                "datatype": "xsd:dateTime",
+                "callback": "date_iso8601"
+            },
+            "changed": {
+                "predicates": [
+                    "dc:modified"
+                ],
+                "datatype": "xsd:dateTime",
+                "callback": "date_iso8601"
+            },
+            "body": {
+                "predicates": [
+                    "content:encoded"
+                ]
+            },
+            "uid": {
+                "predicates": [
+                    "sioc:has_creator"
+                ],
+                "type": "rel"
+            },
+            "name": {
+                "predicates": [
+                    "foaf:name"
+                ]
+            },
+            "comment_count": {
+                "predicates": [
+                    "sioc:num_replies"
+                ],
+                "datatype": "xsd:integer"
+            },
+            "last_activity": {
+                "predicates": [
+                    "sioc:last_activity_date"
+                ],
+                "datatype": "xsd:dateTime",
+                "callback": "date_iso8601"
+            }
+        },
+        "path": {
+            "pid": "98",
+            "source": "node\/78",
+            "alias": "records-relais-mixtes-50m-et-25m",
+            "language": "fr"
+        },
+        "cid": "0",
+        "last_comment_timestamp": "1467213344",
+        "last_comment_name": null,
+        "last_comment_uid": "1",
+        "comment_count": "0",
+        "content_theme_content_node_edit": "-content_type-",
+        "content_theme_content_node_view": "-content_type-",
+        "name": "admin",
+        "picture": "0",
+        "data": "a:1:{s:7:\u0022overlay\u0022;i:1;}",
+        "menu": {
+            "link_title": "records relais mixtes 50m et 25m",
+            "mlid": 0,
+            "plid": "0",
+            "menu_name": "menu--records-du-maroc",
+            "weight": "0",
+            "options": [],
+            "module": "menu",
+            "expanded": "0",
+            "hidden": "0",
+            "has_children": "0",
+            "customized": 0,
+            "parent_depth_limit": 8,
+            "description": "",
+            "enabled": 1
+        },
+        "node_export_drupal_version": "7",
+        "#node_export_object": "1"
+    },
+    {
+        "vid": "73",
+        "uid": "1",
+        "title": "Records 50m Messieurs",
+        "log": "",
+        "status": "1",
+        "comment": "1",
+        "promote": "0",
+        "sticky": "0",
+        "vuuid": "2f938669-6c9e-4d39-b627-a27df602d10a",
+        "nid": "73",
+        "type": "records_du_maroc",
+        "language": "fr",
+        "created": "1467212211",
+        "changed": "1622631408",
+        "tnid": "0",
+        "translate": "0",
+        "uuid": "7c38f3f9-2c3f-46ab-85e6-11109250f8e1",
+        "revision_timestamp": "1622631408",
+        "revision_uid": "69",
+        "body": {
+            "und": [
+                {
+                    "value": "\u003Cp\u003E\u003Ca href=\u0022http:\/\/www.frmnatation.com\/sites\/default\/files\/RECORDS%20MESSIEURS%2050%20m.pdf\u0022\u003E\/sites\/default\/files\/1-%20RECORDS%20du%20maroc%20Messieurs%2050%20M_10.pdf\u003C\/a\u003E\u003C\/p\u003E",
+                    "summary": "",
+                    "format": "texte_complet",
+                    "safe_value": " \u003Cp\u003E\u003Ca href=\u0022http:\/\/www.frmnatation.com\/sites\/default\/files\/RECORDS%20MESSIEURS%2050%20m.pdf\u0022\u003E\/sites\/default\/files\/1-%20RECORDS%20du%20maroc%20Messieurs%2050%20M_10.pdf\u003C\/a\u003E\u003C\/p\u003E ",
+                    "safe_summary": "  "
+                }
+            ]
+        },
+        "rdf_mapping": {
+            "rdftype": [
+                "sioc:Item",
+                "foaf:Document"
+            ],
+            "title": {
+                "predicates": [
+                    "dc:title"
+                ]
+            },
+            "created": {
+                "predicates": [
+                    "dc:date",
+                    "dc:created"
+                ],
+                "datatype": "xsd:dateTime",
+                "callback": "date_iso8601"
+            },
+            "changed": {
+                "predicates": [
+                    "dc:modified"
+                ],
+                "datatype": "xsd:dateTime",
+                "callback": "date_iso8601"
+            },
+            "body": {
+                "predicates": [
+                    "content:encoded"
+                ]
+            },
+            "uid": {
+                "predicates": [
+                    "sioc:has_creator"
+                ],
+                "type": "rel"
+            },
+            "name": {
+                "predicates": [
+                    "foaf:name"
+                ]
+            },
+            "comment_count": {
+                "predicates": [
+                    "sioc:num_replies"
+                ],
+                "datatype": "xsd:integer"
+            },
+            "last_activity": {
+                "predicates": [
+                    "sioc:last_activity_date"
+                ],
+                "datatype": "xsd:dateTime",
+                "callback": "date_iso8601"
+            }
+        },
+        "path": {
+            "pid": "93",
+            "source": "node\/73",
+            "alias": "records-50m-messieurs",
+            "language": "fr"
+        },
+        "cid": "0",
+        "last_comment_timestamp": "1467212211",
+        "last_comment_name": null,
+        "last_comment_uid": "1",
+        "comment_count": "0",
+        "content_theme_content_node_edit": "-content_type-",
+        "content_theme_content_node_view": "-content_type-",
+        "name": "admin",
+        "picture": "0",
+        "data": "a:1:{s:7:\u0022overlay\u0022;i:1;}",
+        "menu": {
+            "link_title": "Records 50m Messieurs",
+            "mlid": 0,
+            "plid": "0",
+            "menu_name": "menu--records-du-maroc",
+            "weight": "0",
+            "options": [],
+            "module": "menu",
+            "expanded": "0",
+            "hidden": "0",
+            "has_children": "0",
+            "customized": 0,
+            "parent_depth_limit": 8,
+            "description": "",
+            "enabled": 1
+        },
+        "node_export_drupal_version": "7",
+        "#node_export_object": "1"
+    },
+    {
+        "vid": "75",
+        "uid": "1",
+        "title": "Records 50m Dames",
+        "log": "",
+        "status": "1",
+        "comment": "1",
+        "promote": "0",
+        "sticky": "0",
+        "vuuid": "618547ca-6340-4af1-b6ea-4d120c5dbd94",
+        "nid": "75",
+        "type": "records_du_maroc",
+        "language": "fr",
+        "created": "1467212552",
+        "changed": "1622631281",
+        "tnid": "0",
+        "translate": "0",
+        "uuid": "cec95b01-f5cc-4e28-bb5f-6518c50e09ed",
+        "revision_timestamp": "1622631281",
+        "revision_uid": "69",
+        "body": {
+            "und": [
+                {
+                    "value": "\u003Cp\u003E\u003Ca href=\u0022http:\/\/www.frmnatation.com\/sites\/default\/files\/RECORDS%20DAMES%2050%20m.pdf\u0022\u003E\u0026nbsp;\/sites\/default\/files\/1-%20RECORDS%20dames%2050%20m_10.pdf\u003C\/a\u003E\u003C\/p\u003E",
+                    "summary": "",
+                    "format": "texte_complet",
+                    "safe_value": " \u003Cp\u003E\u003Ca href=\u0022http:\/\/www.frmnatation.com\/sites\/default\/files\/RECORDS%20DAMES%2050%20m.pdf\u0022\u003E\u0026nbsp;\/sites\/default\/files\/1-%20RECORDS%20dames%2050%20m_10.pdf\u003C\/a\u003E\u003C\/p\u003E ",
+                    "safe_summary": "  "
+                }
+            ]
+        },
+        "rdf_mapping": {
+            "rdftype": [
+                "sioc:Item",
+                "foaf:Document"
+            ],
+            "title": {
+                "predicates": [
+                    "dc:title"
+                ]
+            },
+            "created": {
+                "predicates": [
+                    "dc:date",
+                    "dc:created"
+                ],
+                "datatype": "xsd:dateTime",
+                "callback": "date_iso8601"
+            },
+            "changed": {
+                "predicates": [
+                    "dc:modified"
+                ],
+                "datatype": "xsd:dateTime",
+                "callback": "date_iso8601"
+            },
+            "body": {
+                "predicates": [
+                    "content:encoded"
+                ]
+            },
+            "uid": {
+                "predicates": [
+                    "sioc:has_creator"
+                ],
+                "type": "rel"
+            },
+            "name": {
+                "predicates": [
+                    "foaf:name"
+                ]
+            },
+            "comment_count": {
+                "predicates": [
+                    "sioc:num_replies"
+                ],
+                "datatype": "xsd:integer"
+            },
+            "last_activity": {
+                "predicates": [
+                    "sioc:last_activity_date"
+                ],
+                "datatype": "xsd:dateTime",
+                "callback": "date_iso8601"
+            }
+        },
+        "path": {
+            "pid": "95",
+            "source": "node\/75",
+            "alias": "records-50m-dames",
+            "language": "fr"
+        },
+        "cid": "0",
+        "last_comment_timestamp": "1467212552",
+        "last_comment_name": null,
+        "last_comment_uid": "1",
+        "comment_count": "0",
+        "content_theme_content_node_edit": "-content_type-",
+        "content_theme_content_node_view": "-content_type-",
+        "name": "admin",
+        "picture": "0",
+        "data": "a:1:{s:7:\u0022overlay\u0022;i:1;}",
+        "menu": {
+            "link_title": "Records 50m Dames",
+            "mlid": 0,
+            "plid": "0",
+            "menu_name": "menu--records-du-maroc",
+            "weight": "0",
+            "options": [],
+            "module": "menu",
+            "expanded": "0",
+            "hidden": "0",
+            "has_children": "0",
+            "customized": 0,
+            "parent_depth_limit": 8,
+            "description": "",
+            "enabled": 1
+        },
+        "node_export_drupal_version": "7",
+        "#node_export_object": "1"
+    },
+    {
+        "vid": "76",
+        "uid": "1",
+        "title": "Record 25m Dames",
+        "log": "",
+        "status": "1",
+        "comment": "1",
+        "promote": "0",
+        "sticky": "0",
+        "vuuid": "464548f2-2eb4-4181-806c-468260af38b4",
+        "nid": "76",
+        "type": "records_du_maroc",
+        "language": "fr",
+        "created": "1467212608",
+        "changed": "1622630747",
+        "tnid": "0",
+        "translate": "0",
+        "uuid": "3726e2fe-9546-43c0-972c-dcdd1122cf9d",
+        "revision_timestamp": "1622630747",
+        "revision_uid": "69",
+        "body": {
+            "und": [
+                {
+                    "value": "\u003Cp\u003E\u003Ca href=\u0022http:\/\/www.frmnatation.com\/sites\/default\/files\/RECORDS%20DAMES%2025%20m.pdf\u0022\u003Ehttp:\/\/www.frmnatation.com\/sites\/default\/files\/RECORDS%20DAMES%2025%20m.pdf\u003C\/a\u003E\u003C\/p\u003E",
+                    "summary": "",
+                    "format": "texte_complet",
+                    "safe_value": " \u003Cp\u003E\u003Ca href=\u0022http:\/\/www.frmnatation.com\/sites\/default\/files\/RECORDS%20DAMES%2025%20m.pdf\u0022\u003Ehttp:\/\/www.frmnatation.com\/sites\/default\/files\/RECORDS%20DAMES%2025%20m.pdf\u003C\/a\u003E\u003C\/p\u003E ",
+                    "safe_summary": "  "
+                }
+            ]
+        },
+        "rdf_mapping": {
+            "rdftype": [
+                "sioc:Item",
+                "foaf:Document"
+            ],
+            "title": {
+                "predicates": [
+                    "dc:title"
+                ]
+            },
+            "created": {
+                "predicates": [
+                    "dc:date",
+                    "dc:created"
+                ],
+                "datatype": "xsd:dateTime",
+                "callback": "date_iso8601"
+            },
+            "changed": {
+                "predicates": [
+                    "dc:modified"
+                ],
+                "datatype": "xsd:dateTime",
+                "callback": "date_iso8601"
+            },
+            "body": {
+                "predicates": [
+                    "content:encoded"
+                ]
+            },
+            "uid": {
+                "predicates": [
+                    "sioc:has_creator"
+                ],
+                "type": "rel"
+            },
+            "name": {
+                "predicates": [
+                    "foaf:name"
+                ]
+            },
+            "comment_count": {
+                "predicates": [
+                    "sioc:num_replies"
+                ],
+                "datatype": "xsd:integer"
+            },
+            "last_activity": {
+                "predicates": [
+                    "sioc:last_activity_date"
+                ],
+                "datatype": "xsd:dateTime",
+                "callback": "date_iso8601"
+            }
+        },
+        "path": {
+            "pid": "96",
+            "source": "node\/76",
+            "alias": "record-25m-dames",
+            "language": "fr"
+        },
+        "cid": "0",
+        "last_comment_timestamp": "1467212608",
+        "last_comment_name": null,
+        "last_comment_uid": "1",
+        "comment_count": "0",
+        "content_theme_content_node_edit": "-content_type-",
+        "content_theme_content_node_view": "-content_type-",
+        "name": "admin",
+        "picture": "0",
+        "data": "a:1:{s:7:\u0022overlay\u0022;i:1;}",
+        "menu": {
+            "link_title": "Record 25m Dames",
+            "mlid": 0,
+            "plid": "0",
+            "menu_name": "menu--records-du-maroc",
+            "weight": "0",
+            "options": [],
+            "module": "menu",
+            "expanded": "0",
+            "hidden": "0",
+            "has_children": "0",
+            "customized": 0,
+            "parent_depth_limit": 8,
+            "description": "",
+            "enabled": 1
+        },
+        "node_export_drupal_version": "7",
+        "#node_export_object": "1"
+    }
+]
