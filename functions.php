@@ -58,79 +58,90 @@ function insertNode($row, $conn)
     echo "node_field_data <br>";
 
 
-    $sql = $conn->prepare("INSERT INTO `node_field_revision`(`nid`, `vid`, `langcode`, `status`, `uid`, `title`, `created`, `changed`, `promote`, `sticky`, `default_langcode`, `revision_translation_affected`)
-         VALUES ('$row->nid','$row->vid','$row->language','$row->status','$row->uid',:title,'$row->created','$row->changed','$row->promote','$row->sticky',1,1)");
-    $sql->bindParam('title', $title);
-    $sql->execute();
-    echo "node_field_revision <br>";
+    // $sql = $conn->prepare("INSERT INTO `node_field_revision`(`nid`, `vid`, `langcode`, `status`, `uid`, `title`, `created`, `changed`, `promote`, `sticky`, `default_langcode`, `revision_translation_affected`)
+    //      VALUES ('$row->nid','$row->vid','$row->language','$row->status','$row->uid',:title,'$row->created','$row->changed','$row->promote','$row->sticky',1,1)");
+    // $sql->bindParam('title', $title);
+    // $sql->execute();
+    // echo "node_field_revision <br>";
 
 
-    $sql = "INSERT INTO `node_revision`(`nid`, `vid`, `langcode`, `revision_uid`, `revision_timestamp`, `revision_log`, `revision_default`)
-     VALUES ('$row->nid','$row->vid','$row->language','$row->revision_uid','$row->revision_timestamp',null, 1)";
-    $conn->exec($sql);
-    echo "node_revision <br>";
+    // $sql = "INSERT INTO `node_revision`(`nid`, `vid`, `langcode`, `revision_uid`, `revision_timestamp`, `revision_log`, `revision_default`)
+    //  VALUES ('$row->nid','$row->vid','$row->language','$row->revision_uid','$row->revision_timestamp',null, 1)";
+    // $conn->exec($sql);
+    // echo "node_revision <br>";
 
-    $sql = $conn->prepare("INSERT INTO  `node_revision__body`(`bundle`, `deleted`, `entity_id`, `revision_id`, `langcode`, `delta`, `body_value`, `body_summary`, `body_format`)
-    VALUES ('$row->type','0','$row->nid','$row->revision_uid','$row->language',0,:html,'$body->summary','basic_html')");
-    $sql->bindParam('html', $html);
-    $sql->execute();
-    echo "node_revision__body <br>";
+    // $sql = $conn->prepare("INSERT INTO  `node_revision__body`(`bundle`, `deleted`, `entity_id`, `revision_id`, `langcode`, `delta`, `body_value`, `body_summary`, `body_format`)
+    // VALUES ('$row->type','0','$row->nid','$row->revision_uid','$row->language',0,:html,'$body->summary','basic_html')");
+    // $sql->bindParam('html', $html);
+    // $sql->execute();
+    // echo "node_revision__body <br>";
 
 
-    $sql = "INSERT INTO `node_revision__comment`(`bundle`, `deleted`, `entity_id`, `revision_id`, `langcode`, `delta`, `comment_status`) 
-       VALUES ('$row->type',0,'$row->nid','$row->revision_uid','$row->language',0,'$row->comment')";
-    $conn->exec($sql);
-    echo "node_revision__comment <br>";
+    // $sql = "INSERT INTO `node_revision__comment`(`bundle`, `deleted`, `entity_id`, `revision_id`, `langcode`, `delta`, `comment_status`) 
+    //    VALUES ('$row->type',0,'$row->nid','$row->revision_uid','$row->language',0,'$row->comment')";
+    // $conn->exec($sql);
+    // echo "node_revision__comment <br>";
 }
 
 function addActu($conn)
 {
-    for ($i = 1; $i < 24; $i++) {
 
-        $data = getData('data/article-p' . $i . '.json');
-        $index = 0;
-        foreach ($data as $row) {
-            if (nodeExist($conn, $row->nid)) {
 
-                $index++;
-                insertNode($row, $conn);
-                $img = $row->field_image->und[0];
+    $data = getData('data/article-p13.json');
+    $index = 0;
+    foreach ($data as $row) {
+        if (nodeExist($conn, $row->nid)) {
 
-                $sql = "INSERT INTO `file_managed`( `uuid`, `langcode`, `uid`, `filename`, `uri`, `filemime`, `filesize`, `status`, `created`, `changed`)
+            $index++;
+            insertNode($row, $conn);
+            $img = $row->field_image->und[0];
+
+
+            $sql = "SELECT * FROM `file_managed` WHERE `uuid` = 'aa4f518d-f422-4963-866c-67527d6ea49e'  ORDER BY `fid` DESC  LIMIT 1";
+            $result = $conn->prepare($sql);
+            $result->execute();
+            $obj = $result->fetchObject();
+            if ($obj != null)
+                $obj = $obj->fid;
+
+            var_dump($obj);
+
+            $sql = "INSERT INTO `file_managed`( `uuid`, `langcode`, `uid`, `filename`, `uri`, `filemime`, `filesize`, `status`, `created`, `changed`)
              VALUES ('$img->uuid','fr','$img->uid','$img->filename','$img->uri','$img->filemime','$img->filesize','$img->status','$img->timestamp','$img->timestamp')";
-                $conn->exec($sql);
-                echo "file_managed <br>";
+            $conn->exec($sql);
+            echo "file_managed <br>";
 
-                $sql = "SELECT * FROM `file_managed` ORDER BY `fid` DESC LIMIT 1";
-                $result = $conn->prepare($sql);
-                $result->execute();
-                $fid = $result->fetchColumn();
+            $sql = "SELECT * FROM `file_managed` ORDER BY `fid` DESC LIMIT 1";
+            $result = $conn->prepare($sql);
+            $result->execute();
+            $fid = $result->fetchColumn();
 
-                $sql = "INSERT INTO `file_usage`(`fid`, `module`, `type`, `id`, `count`)
+            $sql = "INSERT INTO `file_usage`(`fid`, `module`, `type`, `id`, `count`)
              VALUES ('$fid','file','node','$row->nid',1)";
-                $conn->exec($sql);
-                echo "file_usage <br>";
+            $conn->exec($sql);
+            echo "file_usage <br>";
 
-                $sql = "INSERT INTO `node__field_image`(`bundle`, `deleted`, `entity_id`, `revision_id`, `langcode`, `delta`, `field_image_target_id`, `field_image_alt`, `field_image_title`, `field_image_width`, `field_image_height`) 
+            $sql = "INSERT INTO `node__field_image`(`bundle`, `deleted`, `entity_id`, `revision_id`, `langcode`, `delta`, `field_image_target_id`, `field_image_alt`, `field_image_title`, `field_image_width`, `field_image_height`) 
             VALUES ('$row->type',0,'$row->nid','$row->revision_uid','$row->language',0,'$fid','$img->alt','$img->title','$img->width','$img->height')";
-                $conn->exec($sql);
-                echo "node__field_image <br>";
+            $conn->exec($sql);
+            echo "node__field_image <br>";
 
 
-                $sql = "INSERT INTO `node_revision__field_image`(`bundle`, `deleted`, `entity_id`, `revision_id`, `langcode`, `delta`, `field_image_target_id`, `field_image_alt`, `field_image_title`, `field_image_width`, `field_image_height`) 
-                VALUES ('$row->type',0,'$row->nid','$row->revision_uid','$row->language',0,'$fid','$img->alt','$img->title','$img->width','$img->height')";
-                $conn->exec($sql);
-                echo "node_revision__field_image <br>";
+            // $sql = "INSERT INTO `node_revision__field_image`(`bundle`, `deleted`, `entity_id`, `revision_id`, `langcode`, `delta`, `field_image_target_id`, `field_image_alt`, `field_image_title`, `field_image_width`, `field_image_height`) 
+            //     VALUES ('$row->type',0,'$row->nid','$row->revision_uid','$row->language',0,'$fid','$img->alt','$img->title','$img->width','$img->height')";
+            // $conn->exec($sql);
+            // echo "node_revision__field_image <br>";
 
 
-                if (count($row->field_categorie) != 0) {
-                    $tid = $row->field_categorie->und[0]->tid;
-                    $sql = "INSERT INTO `node__field_categorie`(`bundle`, `deleted`, `entity_id`, `revision_id`, `langcode`, `delta`, `field_categorie_target_id`)
+            if (count($row->field_categorie) != 0) {
+                $tid = $row->field_categorie->und[0]->tid;
+                $sql = "INSERT INTO `node__field_categorie`(`bundle`, `deleted`, `entity_id`, `revision_id`, `langcode`, `delta`, `field_categorie_target_id`)
                  VALUES ('$row->type',0,'$row->nid','$row->revision_uid','$row->language',0,'$tid')";
-                    $conn->exec($sql);
-                    echo "node__field_categorie <br>";
-                }
+                $conn->exec($sql);
+                echo "node__field_categorie <br>";
+            }
 
+            if ($row->field_fichier != []) {
                 if (count($row->field_fichier->und) != 0) {
                     $delta = 0;
                     foreach ($row->field_fichier->und as $file) {
@@ -144,7 +155,7 @@ function addActu($conn)
                         echo "$filenam <br>";
 
                         $sql = $conn->prepare("INSERT INTO `file_managed`( `uuid`, `langcode`, `uid`, `filename`, `uri`, `filemime`, `filesize`, `status`, `created`, `changed`)
-                         VALUES ('$file->uuid','fr','$file->uid',':filenam','$fileuri','$file->filemime','$file->filesize','$file->status','$file->timestamp','$file->timestamp')");
+                             VALUES ('$file->uuid','fr','$file->uid',':filenam','$fileuri','$file->filemime','$file->filesize','$file->status','$file->timestamp','$file->timestamp')");
                         $sql->bindParam('filenam', $filenam);
                         $sql->execute();
                         echo "file_managed <br>";
@@ -155,33 +166,32 @@ function addActu($conn)
                         $fidd = $result->fetchColumn();
 
                         $sql = "INSERT INTO `file_usage`(`fid`, `module`, `type`, `id`, `count`)
-                        VALUES ('$fidd','file','node','$row->nid',1)";
+                            VALUES ('$fidd','file','node','$row->nid',1)";
                         $conn->exec($sql);
                         echo "file_usage  $fidd<br>";
 
 
                         $sql = "INSERT INTO `node__field_fichier`(`bundle`, `deleted`, `entity_id`, `revision_id`, `langcode`, `delta`,`field_fichier_target_id`, `field_fichier_display`, `field_fichier_description`) 
-                        VALUES ('$row->type',0,'$row->nid','$row->revision_uid','$row->language',$delta,'$fidd',1,'')";
+                            VALUES ('$row->type',0,'$row->nid','$row->revision_uid','$row->language',$delta,'$fidd',1,'')";
                         $conn->exec($sql);
                         $delta++;
                         echo "node__field_fichier <br>";
                     }
                 }
-
-
-                echo $row->uuid . " is inserted <br>";
-                echo "New record created successfully  <br>";
             }
 
-
-            echo "<h1>$index New records created successfully </h1> <br>";
+            echo $row->uuid . " is inserted <br>";
+            echo "New record created successfully  <br>";
         }
+
+
+        echo "<h1>$index New records created successfully </h1> <br>";
     }
 }
 function addRecM($conn)
 {
 
-    $data = getData('content.json');
+    $data = getData('data/proc.json');
     $index = 0;
     foreach ($data as $row) {
         if (nodeExist($conn, $row->nid)) {
@@ -200,7 +210,7 @@ function addRecM($conn)
 function addAgenda($conn)
 {
 
-    $data = getData('content.json');
+    $data = getData('data/agenda.json');
     $index = 0;
     foreach ($data as $row) {
         if (nodeExist($conn, $row->nid)) {
