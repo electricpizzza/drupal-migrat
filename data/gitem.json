@@ -1,0 +1,100 @@
+[
+    {
+        "vid": "252",
+        "uid": "1",
+        "title": "PHOTOS  DES CHAMPIONNAT DU MAROC D\u0027HIVER DE NATATION 2017",
+        "log": "",
+        "status": "1",
+        "comment": "2",
+        "promote": "1",
+        "sticky": "0",
+        "vuuid": "f3a2ba01-c74d-40f2-adfa-f24fd50896ee",
+        "nid": "252",
+        "type": "node_gallery_item",
+        "language": "fr",
+        "created": "1481113292",
+        "changed": "1486751794",
+        "tnid": "0",
+        "translate": "0",
+        "uuid": "5d3d6bd6-edc1-47dc-946f-398e47ef343b",
+        "revision_timestamp": "1486751794",
+        "revision_uid": "1",
+        "body": [],
+        "node_gallery_ref_1": [],
+        "node_gallery_media": [],
+        "rdf_mapping": {
+            "rdftype": [
+                "sioc:Item",
+                "foaf:Document"
+            ],
+            "title": {
+                "predicates": [
+                    "dc:title"
+                ]
+            },
+            "created": {
+                "predicates": [
+                    "dc:date",
+                    "dc:created"
+                ],
+                "datatype": "xsd:dateTime",
+                "callback": "date_iso8601"
+            },
+            "changed": {
+                "predicates": [
+                    "dc:modified"
+                ],
+                "datatype": "xsd:dateTime",
+                "callback": "date_iso8601"
+            },
+            "body": {
+                "predicates": [
+                    "content:encoded"
+                ]
+            },
+            "uid": {
+                "predicates": [
+                    "sioc:has_creator"
+                ],
+                "type": "rel"
+            },
+            "name": {
+                "predicates": [
+                    "foaf:name"
+                ]
+            },
+            "comment_count": {
+                "predicates": [
+                    "sioc:num_replies"
+                ],
+                "datatype": "xsd:integer"
+            },
+            "last_activity": {
+                "predicates": [
+                    "sioc:last_activity_date"
+                ],
+                "datatype": "xsd:dateTime",
+                "callback": "date_iso8601"
+            }
+        },
+        "path": {
+            "pid": "277",
+            "source": "node\/252",
+            "alias": "photos-des-championnat-du-maroc-dhiver-de-natation-2017",
+            "language": "fr"
+        },
+        "cid": "0",
+        "last_comment_timestamp": "1481113292",
+        "last_comment_name": null,
+        "last_comment_uid": "1",
+        "comment_count": "0",
+        "content_theme_content_node_edit": "-content_type-",
+        "content_theme_content_node_view": "-content_type-",
+        "name": "admin",
+        "picture": "0",
+        "data": "a:1:{s:7:\u0022overlay\u0022;i:1;}",
+        "menu": null,
+        "node_export_drupal_version": "7",
+        "#node_export_object": "1"
+    }
+]
