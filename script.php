@@ -3,7 +3,8 @@ include_once('connection.php');
 include_once('functions.php');
 
 try {
-    addActu($conn);
+    // addActu($conn);
+    addGalleries($conn);
     // addRecM($conn);
     // addAgenda($conn);
 } catch (PDOException $e) {

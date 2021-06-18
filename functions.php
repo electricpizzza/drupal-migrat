@@ -31,6 +31,7 @@ function insertNode($row, $conn)
     if ($body == null) {
         $body = $row->field_body;
     }
+
     $body = $body->und[0];
 
     $html = html_entity_decode($body->value);
@@ -436,7 +437,7 @@ function addGalleries($conn)
             insertNode($row, $conn);
 
             if (count($row->field_image->und) != 0) {
-
+                $delta = 0;
 
                 foreach ($row->field_image->und as $img) {
                     // $img = $row->field_image->und[0];
@@ -468,19 +469,41 @@ function addGalleries($conn)
                     VALUES ('$fid','file','node','$row->nid',1)";
 
                     $conn->exec($sql);
-
                     echo "file_usage <br>";
-
-
-
                     $sql = "INSERT INTO `frmn_node__field_image`(`bundle`, `deleted`, `entity_id`, `revision_id`, `langcode`, `delta`, `field_image_target_id`, `field_image_alt`, `field_image_title`, `field_image_width`, `field_image_height`) 
 
-                    VALUES ('$row->type',0,'$row->nid','$row->revision_uid','$row->language',0,'$fid','$img->alt','$img->title','$img->width','$img->height')";
+                    VALUES ('$row->type',0,'$row->nid','$row->revision_uid','$row->language',$delta,'$fid','$img->alt','$img->title','$img->width','$img->height')";
 
                     $conn->exec($sql);
 
                     echo "node__field_image <br>";
+                    $delta++;
                 }
+
+
+                $tid = $row->field_categorie->und[0]->tid;
+
+                $sql = "INSERT INTO `frmn_node__field_categorie`(`bundle`, `deleted`, `entity_id`, `revision_id`, `langcode`, `delta`, `field_categorie_target_id`)
+                 VALUES ('$row->type',0,'$row->nid','$row->revision_uid','$row->language',0,'$tid')";
+                $conn->exec($sql);
+
+                echo "node__field_categorie <br>";
+
+
+                $weight = $row->field_weight->und[0]->value;
+
+                $sql = "INSERT INTO `frmn_node__field_weight`(`bundle`, `deleted`, `entity_id`, `revision_id`, `langcode`, `delta`, `field_weight_value`)
+                 VALUES ('$row->type',0,'$row->nid','$row->revision_uid','$row->language',0,'$weight')";
+                $conn->exec($sql);
+                echo "frmn_node__field_weight <br>";
+
+
+                $gallery_url = $row->field_gallery_url->und[0]->value;
+
+                $sql = "INSERT INTO `frmn_node__field_gallery_url`(`bundle`, `deleted`, `entity_id`, `revision_id`, `langcode`, `delta`, `field_gallery_url_value`)
+                 VALUES ('$row->type',0,'$row->nid','$row->revision_uid','$row->language',0,'$gallery_url')";
+                $conn->exec($sql);
+                echo "frmn_node__field_gallery_url <br>";
             }
             echo $row->uuid . " is inserted <br>";
             echo "New record created successfully  <br>";
